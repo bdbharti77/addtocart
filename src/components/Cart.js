@@ -35,13 +35,13 @@ class Cart extends Component {
                     <div>
                       <img src="https://images-eu.ssl-images-amazon.com/images/I/51dsU-oLu1L._SX300_SY300_QL70_FMwebp_.jpg" alt={item.name}></img>
                     </div>
-                    <div>
+                    <div className="title">
                       <div>{item.name}
                       <button
                           className="button"
                           onClick={() => this.props.removeFromCart(item)}
                         >
-                          Remove
+                          x
                         </button>
                       </div>
                       <div className="right">
