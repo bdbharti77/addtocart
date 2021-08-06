@@ -56,8 +56,7 @@ class Filter extends Component {
             <option value="vegetable">Vegetable</option>
             <option value="bakery">Bakery</option>
             <option value="vegan">Vegan</option>
-            
-            
+            <option value="meat">Meat</option>
           </select>
         </div>
 
