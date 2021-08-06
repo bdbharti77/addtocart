@@ -1,5 +1,5 @@
 import { FETCH_PRODUCTS } from "../types";
-import { ORDER_PRODUCTS_BY_PRICE, ORDER_PRODUCTS_BY_CATEGORY } from "../types";
+import { ORDER_PRODUCTS_BY_PRICE, ORDER_PRODUCTS_BY_CATEGORY, ORDER_PRODUCTS_BY_NAME } from "../types";
 import { product } from "./data"; 
 export const fetchProducts = () => async (dispatch) => {
   let data;
@@ -57,6 +57,26 @@ export const sortProductsByCatogary = (sortedProducts, sort) => async(dispatch, 
   console.log(sortedProducts)
   dispatch({
     type: ORDER_PRODUCTS_BY_CATEGORY,
+    payload: {
+      sort: sort,
+      items: sortedProducts
+        },
+  });
+};
+
+export const wildCartSearch = (sort) => async(dispatch, getState) => {
+  let productList =getState().products.items;
+  productList = productList.map(item =>({
+    ...item, 
+    qty:0
+  }))
+  const sortedProducts = productList.filter(item => {
+    return item.name.toLowerCase().includes(sort.toLowerCase());
+  });
+
+  console.log(sortedProducts)
+  dispatch({
+    type: ORDER_PRODUCTS_BY_NAME,
     payload: {
       sort: sort,
       items: sortedProducts

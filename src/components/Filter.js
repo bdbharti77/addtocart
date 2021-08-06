@@ -1,25 +1,40 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { sortProducts, sortProductsByCatogary} from "../actions/productActions";
+import { sortProducts, sortProductsByCatogary, wildCartSearch} from "../actions/productActions";
 
 class Filter extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
-       
+       search:''
     }
   }
   
+  handleChange = (event) => {
+    this.setState({
+      search:event.target.value
+    }, ()=>{
+this.props.wildCartSearch(this.state.search)
+    });
+  };
+  
+
   componentDidMount(){
    
   }
 
   render() {
+    const {search} = this.state;
     return !this.props.filteredProducts ? (
       <div>Loading...</div>
     ) : (
+      <>
+       <div className="wildcard">
+          <input placeholder="search..." type='text' value={search} name="search" onChange={this.handleChange} />
+        </div>
       <div className="filter">
+       
         <div className="filter-result">
           {this.props.filteredProducts.length} Products
         </div>
@@ -62,6 +77,7 @@ class Filter extends Component {
 
         
       </div>
+      </>
     );
   }
 }
@@ -73,6 +89,7 @@ export default connect(
   }),
   {
     sortProducts,
-    sortProductsByCatogary
+    sortProductsByCatogary,
+    wildCartSearch
   }
 )(Filter);
