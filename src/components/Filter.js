@@ -40,7 +40,7 @@ class Filter extends Component {
           </select>
         </div>
         <div className="filter-sort">
-          Catogary{" "}
+        Category{" "}
           <select
             value={this.props.sort}
             onChange={(e) =>
