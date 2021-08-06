@@ -46,9 +46,9 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
 };
 
 
-export const sortProductsByCatogary = (sortedProducts, sort) => async(dispatch) => {
- 
-  let productList = product.products;
+
+export const sortProductsByCatogary = (sortedProducts, sort) => async(dispatch, getState) => {
+  let productList =getState().products.items;
   productList = productList.map(item =>({
     ...item, 
     qty:0
