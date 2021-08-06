@@ -36,15 +36,19 @@ class Cart extends Component {
                       <img src="https://images-eu.ssl-images-amazon.com/images/I/51dsU-oLu1L._SX300_SY300_QL70_FMwebp_.jpg" alt={item.name}></img>
                     </div>
                     <div>
-                      <div>{item.name}</div>
-                      <div className="right">
-                        {formatCurrency(item.price)} x {item.count}{" "}
-                        <button
+                      <div>{item.name}
+                      <button
                           className="button"
                           onClick={() => this.props.removeFromCart(item)}
                         >
                           Remove
                         </button>
+                      </div>
+                      <div className="right">
+                    <p> Unit Price {formatCurrency(item.price)} x {item.count}{" "}</p>  
+
+                    <p>Sum of {formatCurrency(item.total)}</p> 
+                      
                       </div>
                     </div>
                   </li>

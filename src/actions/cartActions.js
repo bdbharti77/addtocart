@@ -12,7 +12,7 @@ export const addToCart = (product) => (dispatch, getState) => {
     }
   });
   if (!alreadyExists) {
-    cartItems.push({ ...product, count: product.qty });
+    cartItems.push({ ...product, count: product.qty, total:product.price*product.qty });
   }
   dispatch({
     type: ADD_TO_CART,
