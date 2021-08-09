@@ -8,15 +8,20 @@ export const addToCart = (product) => (dispatch, getState) => {
    
     if (x.id === product.id) {
       alreadyExists = true;
-      x.count=product.qty;
+      x.qty=product.qty;
     }
   });
   if (!alreadyExists) {
-    cartItems.push({ ...product, count: product.qty, total:product.price*product.qty });
+    cartItems.push({ ...product, qty: product.qty, total:product.price*product.qty });
+  }
+
+  let totalCount = 0
+  for(let i=0; i<cartItems.length; i++){
+    totalCount+=parseInt(cartItems[i].qty)
   }
   dispatch({
     type: ADD_TO_CART,
-    payload: { cartItems },
+    payload: { cartItems, totalCount },
   });
 }
   if(product.qty<=0){
@@ -28,11 +33,28 @@ export const addToCart = (product) => (dispatch, getState) => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
-export const removeFromCart = (product) => (dispatch, getState) => {
-  const cartItems = getState()
-    .cart.cartItems.slice()
+export const removeFromCart = (type,i,product) => (dispatch, getState) => {
+  let cartItems = getState()
+  .cart.cartItems;
+  if(type==='+'){
+    cartItems[i].qty+=1
+  }
+ 
+  else if(cartItems[i].qty===0){
+    cartItems = cartItems.slice()
     .filter((x) => x.id !== product.id);
-  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
+    if(type==='-'){
+   alert("You can't add negative value in cart")
+    }
+  }
+  else{
+    cartItems[i].qty-=1
+  }
+  let totalCount = 0
+  for(let i=0; i<cartItems.length; i++){
+    totalCount+=parseInt(cartItems[i].qty)
+  }
+  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems, totalCount } });
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
