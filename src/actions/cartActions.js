@@ -49,7 +49,7 @@ export const removeFromCart = (type,i,product) => (dispatch, getState) => {
     cartItems = cartItems.slice()
     .filter((x) => x.id !== product.id);
     if(type==='-'){
-      return;
+     // return;
      }
   }
   else{

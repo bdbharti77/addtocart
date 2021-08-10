@@ -52,6 +52,7 @@ class Cart extends Component {
 
        
         <div>
+        {cartItems.length !== 0 ? (
           <div className="cart">
             <Fade left cascade>
 
@@ -88,7 +89,9 @@ class Cart extends Component {
             
             </Fade>
           </div>
-          {cartItems.length !== 0 && (
+        ):null}
+        
+        {cartItems.length !== 0 && (
             <div>
               <div className="cart">
                 <div className="total">
