@@ -46,7 +46,7 @@ class Products extends Component {
     return (
       <div>
           {!this.props.products ? (
-            <div>Loading...</div>
+            <div></div>
           ) : (
               <Table className="tbldata" striped bordered hover>
   <thead>
