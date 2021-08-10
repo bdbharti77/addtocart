@@ -195,6 +195,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 .total > div {
   font-size: 2rem;
@@ -205,6 +206,16 @@ footer {
 }
 form {
   width: 100%;
+}
+
+.total > button.btndata {
+   flex:none;
+  width: 130px;
+  border: 1px;
+  background: #4b89c7;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
 }
 .form-container {
   width: 100%;
@@ -237,9 +248,12 @@ input {
 }
 .close-modal {
   position: absolute;
-  right: 1rem;
-  top: 2.5rem;
-  z-index: 1000;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    z-index: 9999;
 }
 
 .cart-items li div button{

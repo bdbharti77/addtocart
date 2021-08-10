@@ -6,7 +6,22 @@ import { Table } from 'react-bootstrap';
 import { removeFromCart } from "../actions/cartActions";
 import AddRemove from "./AddRemove";
 import { addToCart } from "../actions/cartActions";
+import Modal from "react-modal";
+import Zoom from "react-reveal/Zoom";
 class Cart extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      product: null,
+    }
+  }
+  openModal = (product) => {
+    this.setState({ product });
+  };
+  closeModal = () => {
+    this.setState({ product: null });
+  };
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -21,7 +36,7 @@ class Cart extends Component {
 
   render() {
     const { cartItems, cartTotal } = this.props;
-    
+    const { product } = this.state;
     return (
       <div>
         {cartItems.length === 0 ? (
@@ -47,7 +62,7 @@ class Cart extends Component {
       <th>Unit Price</th>
       <th>Item Total Price</th>
       <th>Quantity</th>
-      <th>Action</th>
+      <th>Add/Remove Item</th>
     </tr>
   </thead>
   <tbody>
@@ -83,13 +98,41 @@ class Cart extends Component {
                       cartItems.reduce((a, c) => a + c.price * c.qty, 0)
                     )}
                   </div>
-               
+                  <button className="btndata" onClick={() => this.openModal(cartItems)}>Buy Now</button>
                 </div>
               </div>
-            
+           
             </div>
           )}
         </div>
+
+        {product && (
+          <Modal isOpen={true} onRequestClose={this.closeModal}>
+            <Zoom>
+              <button className="close-modal" onClick={this.closeModal}>
+                x
+              </button>
+              <div className="product-details">
+               
+                <div className="product-details-description">
+                  <p>
+                  You have purchased {cartTotal} items.
+                  </p>
+                
+                  <div className="total">
+                  <div>
+                    Total:{" "}
+                    {formatCurrency(
+                      cartItems.reduce((a, c) => a + c.price * c.qty, 0)
+                    )}
+                  </div>
+               
+                </div>
+                </div>
+              </div>
+            </Zoom>
+          </Modal>
+        )}
       </div>
     );
   }

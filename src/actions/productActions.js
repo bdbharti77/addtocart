@@ -66,7 +66,7 @@ export const sortProductsByCatogary = (sortedProducts, sort) => async(dispatch, 
    }
    
    sortedProducts = sortedProducts.filter(item => {
-    return item.name.toLowerCase().includes(sort.search.toLowerCase());
+    return item.name.toLowerCase().includes(sort.search.toLowerCase().trim());
   });
   const cartItems = getState().cart.cartItems.slice();
   for(let j=0; j<sortedProducts.length; j++){
@@ -90,7 +90,7 @@ export const wildCartSearch = (sort) => async(dispatch, getState) => {
   console.log('wild', sort)
   let productList =getState().products.items;
   let sortedProducts =productList;
-  if(sort.category!==undefined && sort.category!=='all'){
+  if(sort.category!==undefined && sort.category!=="" && sort.category!=='all'){
     sortedProducts = productList.filter(item => item.type===sort.category)
   }
   console.log('sortsort',sort)
@@ -119,7 +119,7 @@ export const AddRemoveFromCart = (type, i) => async(dispatch, getState) => {
  
   else if(productList[i].qty===0){
     if(type==='-'){
-   alert("You can't add negative value in cart")
+   
    return false
     }
   }
@@ -128,11 +128,16 @@ export const AddRemoveFromCart = (type, i) => async(dispatch, getState) => {
   }
 
 
+  let totalCount = 0
+  for(let i=0; i<productList.length; i++){
+    totalCount+=parseInt(productList[i].qty)
+  }
 
   dispatch({
     type: ADD_REMOVE_FROM_CART,
     payload: {
       items: productList,
+      totalCount:totalCount
         },
   });
 

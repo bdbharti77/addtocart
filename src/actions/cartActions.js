@@ -1,7 +1,7 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../types";
 export const addToCart = (product) => (dispatch, getState) => {
 
-  const cartItems = getState().cart.cartItems.slice();
+  const cartItems = getState().cart.cartItems;
   let alreadyExists = false;
   if(product.qty>0){
   cartItems.forEach((x) => {
@@ -44,8 +44,8 @@ export const removeFromCart = (type,i,product) => (dispatch, getState) => {
     cartItems = cartItems.slice()
     .filter((x) => x.id !== product.id);
     if(type==='-'){
-   alert("You can't add negative value in cart")
-    }
+      return;
+     }
   }
   else{
     cartItems[i].qty-=1
@@ -54,7 +54,11 @@ export const removeFromCart = (type,i,product) => (dispatch, getState) => {
   for(let i=0; i<cartItems.length; i++){
     totalCount+=parseInt(cartItems[i].qty)
   }
-  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems, totalCount } });
+  dispatch({
+    type: ADD_TO_CART,
+    payload: { cartItems, totalCount },
+  });
+  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 

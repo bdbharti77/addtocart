@@ -54,7 +54,7 @@ class Products extends Component {
       <th>Name</th>
       <th>Category</th>
       <th>Price</th>
-      <th>Action</th>
+      <th>Add/Remove Item</th>
     </tr>
   </thead>
   <tbody>

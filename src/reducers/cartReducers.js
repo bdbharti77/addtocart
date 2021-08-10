@@ -8,7 +8,7 @@ export const cartReducer = (
     case ADD_TO_CART:
       return { cartItems: action.payload.cartItems, cartTotal:action.payload.totalCount };
     case REMOVE_FROM_CART:
-      return { cartItems: action.payload.cartItems, cartTotal:action.payload.totalCount};
+      return { cartItems: action.payload.cartItems};
     default:
       return state;
   }

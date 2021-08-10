@@ -60,7 +60,7 @@ this.props.sortProductsByCatogary(
     ) : (
       <>
        <div className="wildcard">
-          <input className="searchboc" placeholder="search..." type='text' value={search} name="search" onChange={this.handleChange} />
+          <input className="searchboc" placeholder="Search..." type='text' value={search} name="search" onChange={this.handleChange} />
         </div>
       <div className="filter">
        
@@ -91,7 +91,7 @@ this.props.sortProductsByCatogary(
             name='category'
             onChange={this.handleChange }
           >
-             <option value="all" selected> select...</option>
+             <option value="all" selected>Select...</option>
             <option value="dairy">Dairy</option>
             <option value="fruit">Fruit</option>
             <option value="vegetable">Vegetable</option>
