@@ -149,9 +149,9 @@ footer {
 .filter {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  margin: 1rem;
-  border-bottom: 0.1rem #c0c0c0 solid;
+  padding: 10px 0;
+  margin: 1rem 0 0;
+  border-top: 0.1rem #c0c0c0 solid;
 }
 .filter div {
   flex: 1;
@@ -258,7 +258,7 @@ input {
   border-bottom: 1px solid #ededed;
 }
 .wildcard{
-  padding: 10px;
+  padding: 10px 0;
   margin-right: 50px;
 }
 .wildcard input{
