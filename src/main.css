@@ -49,7 +49,7 @@ header a {
   color: #4a89c7;
   text-decoration: none;
 }
-header ul{
+header ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -58,7 +58,7 @@ header ul{
   opacity: 0;
   width: 100%;
 }
-header ul li{
+header ul li {
   display: inline-block;
   padding: 10px 30px;
   font-size: 15px;
@@ -106,7 +106,7 @@ footer {
   justify-content: space-between;
   height: 100%;
 }
-.product span{
+.product span {
   text-transform: capitalize;
   font-weight: bold;
   color: #ff8000;
@@ -138,11 +138,11 @@ footer {
   border: 0.1rem #808080 solid;
 }
 .button.primary {
-   background: #4a89c7;
-   color: #fff;
-   font-size: 12px;
+  background: #4a89c7;
+  color: #fff;
+  font-size: 12px;
 }
-.qty{
+.qty {
   max-width: 60px;
   margin: 0 10px;
 }
@@ -209,7 +209,7 @@ form {
 }
 
 .total > button.btndata {
-   flex:none;
+  flex: none;
   width: 130px;
   border: 1px;
   background: #4b89c7;
@@ -248,15 +248,15 @@ input {
 }
 .close-modal {
   position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 30px;
-    height: 30px;
-    display: block;
-    z-index: 9999;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: block;
+  z-index: 9999;
 }
 
-.cart-items li div button{
+.cart-items li div button {
   position: absolute;
   right: 0;
   top: 0;
@@ -271,11 +271,11 @@ input {
   font-size: 13px;
   border-bottom: 1px solid #ededed;
 }
-.wildcard{
+.wildcard {
   padding: 10px 0;
   margin-right: 50px;
 }
-.wildcard input{
+.wildcard input {
   width: 300px;
   padding: 10px;
   background: url(./images/search.png);
@@ -284,7 +284,7 @@ input {
   background-repeat: no-repeat;
   padding-right: 40px;
 }
-.tbldata{
+.tbldata {
   width: 100%;
 }
 .table-bordered td {
@@ -302,19 +302,19 @@ input {
   border-radius: 50%;
   cursor: pointer;
 }
-.cart-header span{
+.cart-header span {
   font-weight: bold;
   padding: 0 10px;
 }
-.qtydata{
+.qtydata {
   display: inline-block;
   width: 60px;
   text-align: center;
 }
-.tbldata thead th{
+.tbldata thead th {
   padding: 7px;
 }
-header ul li span{
+header ul li span {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -327,12 +327,12 @@ header ul li span{
   color: #fff;
   top: 0px;
 }
-.filter-sort select{
+.filter-sort select {
   width: 50%;
   border: 1px solid #ededed;
   padding: 5px;
   margin-right: 20px;
 }
-.filter-sort select .clear{
+.filter-sort select .clear {
   cursor: pointer;
 }

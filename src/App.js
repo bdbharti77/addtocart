@@ -6,18 +6,15 @@ import Home from "./Home/Home";
 import Cart from "./components/Cart";
 import Header from "./Home/Header";
 class App extends React.Component {
-
   render() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-     <Header />
+          <Header />
           <div className="container">
-           
             <main>
-              <Route path="/"  component={Home} exact />
+              <Route path="/" component={Home} exact />
               <Route path="/Cart" component={Cart} />
-              
             </main>
             <footer>All right is reserved.</footer>
           </div>
@@ -27,5 +24,4 @@ class App extends React.Component {
   }
 }
 
-
-export default App
+export default App;
