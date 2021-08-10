@@ -25,10 +25,15 @@ export const addToCart = (product) => (dispatch, getState) => {
   });
 }
   if(product.qty<=0){
+ 
     const cartItems = getState()
     .cart.cartItems.slice()
     .filter((x) => x.id !== product.id);
-    dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
+    let totalCount = 0
+    for(let i=0; i<cartItems.length; i++){
+      totalCount+=parseInt(cartItems[i].qty)
+    }
+    dispatch({ type: REMOVE_FROM_CART, payload: { cartItems, totalCount} });
   }
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
@@ -58,7 +63,7 @@ export const removeFromCart = (type,i,product) => (dispatch, getState) => {
     type: ADD_TO_CART,
     payload: { cartItems, totalCount },
   });
-  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems } });
+  dispatch({ type: REMOVE_FROM_CART, payload: { cartItems, totalCount } });
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
