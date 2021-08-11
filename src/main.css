@@ -157,7 +157,7 @@ footer {
   flex: 1;
 }
 .cart {
-  padding: 1rem;
+  padding: 0;
   margin: 1rem;
   display: flex;
 }
