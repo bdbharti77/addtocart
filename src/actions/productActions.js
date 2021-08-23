@@ -115,7 +115,7 @@ export const wildCartSearch = (sort) => async (dispatch, getState) => {
 };
 
 export const addRemoveFromCart = (type, i) => async (dispatch, getState) => {
-  let productList = getState().products.items;
+  let productList = getState().products.filteredItems;
 
   if (type === "+") {
     productList[i].qty += 1;
